@@ -1,0 +1,1707 @@
+HISTORICKÉ TABUĽKY PRE FPY:
+
+CREATE TABLE "UX_WIP_FPY_STATION_DAY_SHIFT" 
+   (	"PLANT_ID" VARCHAR2(10 CHAR) NOT NULL ENABLE, 
+	"SHIFT_DATE" DATE, 
+	"STATION" VARCHAR2(300 CHAR), 
+	"PROCESS_STEP" VARCHAR2(300 CHAR), 
+	"STATION_GROUP" VARCHAR2(300 CHAR), 
+	"PROCESS_GROUP" VARCHAR2(300 CHAR), 
+	"LINE" VARCHAR2(201 CHAR), 
+	"MATERIAL" VARCHAR2(300 CHAR), 
+	"COUNT_IN" NUMBER, 
+	"COUNT_OUT" NUMBER, 
+	"FPY" NUMBER
+   );
+
+
+CREATE TABLE "UX_WIP_FPY_STATION_DAY_SHIFT_TOTAL" 
+   (	"PLANT_ID" VARCHAR2(10 CHAR) NOT NULL ENABLE, 
+	"SHIFT_DATE" DATE, 
+	"STATION" VARCHAR2(300 CHAR), 
+	"COUNT_IN" NUMBER, 
+	"COUNT_OUT" NUMBER, 
+	"FPY" NUMBER
+   );
+
+
+CREATE TABLE "UX_WIP_FPY_STATION_GROUP_DAY_SHIFT" 
+   (	"PLANT_ID" VARCHAR2(10 CHAR) NOT NULL ENABLE, 
+	"SHIFT_DATE" DATE, 
+	"PROCESS_STEP" VARCHAR2(300 CHAR), 
+	"STATION_GROUP" VARCHAR2(300 CHAR), 
+	"PROCESS_GROUP" VARCHAR2(300 CHAR), 
+	"LINE" VARCHAR2(201 CHAR), 
+	"MATERIAL" VARCHAR2(300 CHAR), 
+	"COUNT_IN" NUMBER, 
+	"COUNT_OUT" NUMBER, 
+	"FPY" NUMBER
+   );
+
+
+CREATE TABLE "UX_WIP_FPY_STATION_GROUP_DAY_SHIFT_TOTAL" 
+   (	"PLANT_ID" VARCHAR2(10 CHAR) NOT NULL ENABLE, 
+	"SHIFT_DATE" DATE, 
+	"STATION_GROUP" VARCHAR2(300 CHAR), 
+	"COUNT_IN" NUMBER, 
+	"COUNT_OUT" NUMBER, 
+	"FPY" NUMBER
+   );
+
+
+CREATE TABLE "UX_WIP_FPY_LINE_DAY_SHIFT" 
+   (	"PLANT_ID" VARCHAR2(10 CHAR) NOT NULL ENABLE, 
+	"SHIFT_DATE" DATE, 
+	"LINE" VARCHAR2(201 CHAR), 
+	"MATERIAL" VARCHAR2(300 CHAR), 
+	"COUNT_IN" NUMBER, 
+	"COUNT_OUT" NUMBER, 
+	"FPY" NUMBER
+   );
+
+
+CREATE TABLE "UX_WIP_FPY_LINE_DAY_SHIFT_TOTAL" 
+   (	"PLANT_ID" VARCHAR2(10 CHAR) NOT NULL ENABLE, 
+	"SHIFT_DATE" DATE, 
+	"LINE" VARCHAR2(201 CHAR), 
+	"COUNT_IN" NUMBER, 
+	"COUNT_OUT" NUMBER, 
+	"FPY" NUMBER
+   );
+
+
+AKTUÁLNE TABUĽKY PRE FPY:
+
+CREATE TABLE "UX_WIP_FPY_STATION_DAY_SHIFT_ACTUAL" 
+   (	"PLANT_ID" VARCHAR2(10 CHAR), 
+	"SHIFT_DATE" DATE, 
+	"STATION" VARCHAR2(100 CHAR), 
+	"PROCESS_STEP" NUMBER(*,0), 
+	"STATION_GROUP" VARCHAR2(100 CHAR), 
+	"PROCESS_GROUP" VARCHAR2(300 CHAR), 
+	"LINE" VARCHAR2(100 CHAR), 
+	"MATERIAL" VARCHAR2(300 CHAR), 
+	"COUNT_IN" NUMBER, 
+	"COUNT_OUT" NUMBER, 
+	"FPY" NUMBER
+   );
+
+
+CREATE TABLE "UX_WIP_FPY_STATION_DAY_SHIFT_TOTAL_ACTUAL" 
+   (	"PLANT_ID" VARCHAR2(10 CHAR), 
+	"SHIFT_DATE" DATE, 
+	"STATION" VARCHAR2(100 CHAR), 
+	"COUNT_IN" NUMBER, 
+	"COUNT_OUT" NUMBER, 
+	"FPY" NUMBER
+   );
+
+
+CREATE TABLE "UX_WIP_FPY_STATION_GROUP_DAY_SHIFT_ACTUAL" 
+   (	"PLANT_ID" VARCHAR2(10 CHAR), 
+	"SHIFT_DATE" DATE, 
+	"PROCESS_STEP" NUMBER(*,0), 
+	"STATION_GROUP" VARCHAR2(100 CHAR), 
+	"PROCESS_GROUP" VARCHAR2(300 CHAR), 
+	"LINE" VARCHAR2(100 CHAR), 
+	"MATERIAL" VARCHAR2(300 CHAR), 
+	"COUNT_IN" NUMBER, 
+	"COUNT_OUT" NUMBER, 
+	"FPY" NUMBER
+   );
+
+
+CREATE TABLE "UX_WIP_FPY_STATION_GROUP_DAY_SHIFT_TOTAL_ACTUAL" 
+   (	"PLANT_ID" VARCHAR2(10 CHAR), 
+	"SHIFT_DATE" DATE, 
+	"STATION_GROUP" VARCHAR2(100 CHAR), 
+	"COUNT_IN" NUMBER, 
+	"COUNT_OUT" NUMBER, 
+	"FPY" NUMBER
+   );
+
+
+CREATE TABLE "UX_WIP_FPY_LINE_DAY_SHIFT_ACTUAL" 
+   (	"PLANT_ID" VARCHAR2(10 CHAR), 
+	"SHIFT_DATE" DATE, 
+	"LINE" VARCHAR2(100 CHAR), 
+	"MATERIAL" VARCHAR2(300 CHAR), 
+	"COUNT_IN" NUMBER, 
+	"COUNT_OUT" NUMBER, 
+	"FPY" NUMBER
+   );
+
+
+CREATE TABLE "UX_WIP_FPY_LINE_DAY_SHIFT_TOTAL_ACTUAL" 
+   (	"PLANT_ID" VARCHAR2(10 CHAR), 
+	"SHIFT_DATE" DATE, 
+	"LINE" VARCHAR2(100 CHAR), 
+	"COUNT_IN" NUMBER, 
+	"COUNT_OUT" NUMBER, 
+	"FPY" NUMBER
+   );
+
+
+TABUĽKA PRE CHYBOVÉ HLÁŠKY:
+
+CREATE TABLE "UX_EVA_SOURCE_FAIL" 
+   (	"PLANT_ID" VARCHAR2(10 BYTE), 
+	"PK_ID" NUMBER NOT NULL ENABLE, 
+	"SERIAL_ID" VARCHAR2(300 BYTE), 
+	"TYPE" VARCHAR2(300 BYTE), 
+	"EVENT_DATE" DATE, 
+	"SHIFT_DATE" DATE, 
+	"TESTPLAN_NAME" VARCHAR2(300 BYTE), 
+	"STATION" VARCHAR2(300 BYTE), 
+	"MATERIAL_NUM" VARCHAR2(300 BYTE), 
+	"TEST_ID" VARCHAR2(600 BYTE), 
+	"DESCRIPTION" VARCHAR2(300 BYTE), 
+	"VALUE" VARCHAR2(100 BYTE), 
+	"LOWER_LIMIT" VARCHAR2(100 BYTE), 
+	"UPPER_LIMIT" VARCHAR2(100 BYTE), 
+	"INFO" VARCHAR2(600 BYTE), 
+	"TEXT_INFO" VARCHAR2(4000 BYTE), 
+	"DAY_ID" NUMBER, 
+	"CHARACTERISTICS" VARCHAR2(600 BYTE)
+   );
+
+
+
+PROCEDÚRY PRE HISTORICKÉ TABUĽKY:
+
+-- UX_WIP_FPY_STATION_DAY_SHIFT
+create or replace PROCEDURE           STORE_UX_WIP_FPY_STATION_DAY_SHIFT AS 
+
+CURSOR c_plant IS 
+SELECT * 
+FROM GEN_T_UX_PLANTS;
+
+CURSOR c_data (c_plant_id VARCHAR2, c_date_start DATE, c_date_end DATE) IS
+SELECT * FROM (
+WITH 
+TMP_SHIFT_STATION AS (
+SELECT DISTINCT plant_id,
+                station_name,
+                MIN(start_time) AS shift_day_start,
+                CASE
+                    WHEN MIN(start_time) = '00:00'
+                    THEN 'N'
+                    ELSE 'Y'
+                END AS shift_next_day   -- smena se preklapi do dalsiho dne
+FROM mes_dwh.PLS_TECHNICAL_SHIFT
+WHERE plant_id IN (                     -- jen zavody, ktere nas zajimaj
+      SELECT plant_id 
+      FROM GEN_T_UX_PLANTS)
+GROUP BY plant_id,
+         station_name
+),
+TMP_SHIFT_FIRST AS(
+SELECT DISTINCT plant_id,
+                MIN(start_time) AS shift_day_start,
+                CASE
+                    WHEN MIN(start_time) = '00:00'
+                    THEN 'N'
+                    ELSE 'Y'
+                END AS shift_next_day   -- smena se preklapi do dalsiho dne
+FROM mes_dwh.PLS_TECHNICAL_SHIFT
+WHERE plant_id IN (                     -- jen zavody, ktere nas zajimaj
+      SELECT plant_id 
+      FROM GEN_T_UX_PLANTS)
+GROUP BY plant_id
+)        
+SELECT q.plant_id,
+       CASE
+            -- kdyz shift_day se preleva do dalsiho dne = 'Y' tak pouzi hodnoty z tabulky TMP_SHIFT_STATION, spojeni podle stanice
+            WHEN h.shift_next_day = 'Y'
+            THEN TRUNC(
+                q.affected_datetime - (
+                    ((1 / 24) * TO_NUMBER(SUBSTR(h.shift_day_start, 1, 2)))         -- minus hodina 
+                    + ((1 / 24 / 60) * TO_NUMBER(SUBSTR(h.shift_day_start, 4, 2)))  -- minus minuta
+                )
+            )
+            -- jinak pouzi hodnoty z TMP_SHIFT_FIRST, spojeni podle zavodu
+            ELSE TRUNC(
+                q.affected_datetime - (
+                    ((1 / 24) * TO_NUMBER(SUBSTR(f.shift_day_start, 1, 2)))         -- minus hodina 
+                    + ((1 / 24 / 60) * TO_NUMBER(SUBSTR(f.shift_day_start, 4, 2)))  -- minus minuta
+                )
+            )
+        -- duvod je ten, ze zavod TQ ma stanice, kde zacina smenovy den ve dvou casech
+        -- a zaroven ne vsechny stanice maji definovan smenovy den
+       END AS shift_date,
+       s.station_id AS station,
+       m.process_step,
+       s.station_group,
+       p.process_group,
+       s.line_name AS line,
+       m.material_name AS material,
+       SUM(q.first_pass_qty + q.first_fail_qty) AS count_in,   -- celkovy pocet kusu vstupujicich do stanice, SUM - v pripade, ze se stejny material objevi v jeden den 2x
+       SUM(q.first_pass_qty) AS count_out,                     -- celkovy pocet kusu vystupujicich ze stanice
+       ROUND(SUM(q.first_pass_qty)/NULLIF(SUM(q.first_pass_qty + q.first_fail_qty), 0), 4) AS fpy
+FROM mes_dwh.QKPI_STATION_QUANTITIES q
+LEFT JOIN mes_dwh.QKPI_STATION_ATT_COMB m
+    ON q.plant_id = m.plant_id
+    AND q.day_id = m.day_id
+    AND q.station_att_comb_pk_id = m.station_att_comb_pk_id
+LEFT JOIN mes_dwh.HIERARCHY_LINE_STATION s
+    ON q.plant_id = s.plant_id
+    AND m.line_station_id = s.line_station_id
+LEFT JOIN mes_dwh.QKPI_PROCESS_DESCRIPTION p
+    ON q.plant_id = p.plant_id
+    AND m.process_step = p.process_step
+    AND s.station_group = p.equipment
+LEFT JOIN TMP_SHIFT_STATION h
+    ON q.plant_id = h.plant_id
+    AND s.station_id = h.station_name
+LEFT JOIN TMP_SHIFT_FIRST f
+    ON q.plant_id = f.plant_id
+WHERE q.granularity = '5M'
+AND q.plant_id IN (                     -- jen zavody, ktere nas zajimaj
+      SELECT plant_id 
+      FROM GEN_T_UX_PLANTS)
+GROUP BY q.plant_id, 
+         s.station_id, 
+         m.process_step, 
+         s.station_group,
+         p.process_group,
+         s.line_name,
+         m.material_name, 
+         CASE 
+            WHEN h.shift_next_day = 'Y' 
+            THEN TRUNC(q.affected_datetime - (((1 / 24) * TO_NUMBER(SUBSTR(h.shift_day_start, 1, 2))) + ((1 / 24 / 60) * TO_NUMBER(SUBSTR(h.shift_day_start, 4, 2))))) 
+            ELSE TRUNC(q.affected_datetime - (((1 / 24) * TO_NUMBER(SUBSTR(f.shift_day_start, 1, 2))) + ((1 / 24 / 60) * TO_NUMBER(SUBSTR(f.shift_day_start, 4, 2))))) 
+         END
+)
+WHERE 
+shift_date >= c_date_start -2
+AND 
+shift_date < c_date_end -1; 
+ 
+
+c_plant_line c_plant%ROWTYPE;
+
+
+p_date_start DATE;
+p_date_end DATE;
+sql_error_message  VARCHAR2(2000);
+v_app_name data_transfer.app_name%TYPE;
+v_plant_id data_transfer.plant%TYPE;
+
+TYPE t_many_rows_cur IS TABLE OF c_data%rowtype;
+
+many_rows_cur t_many_rows_cur;
+
+ex_dml_errors EXCEPTION;
+  PRAGMA EXCEPTION_INIT(ex_dml_errors, -24381);
+  l_error_count  NUMBER;
+  
+  v_fetch_start DATE;
+  v_proc_start DATE;
+
+BEGIN
+
+v_app_name := 'STORE_UX_WIP_FPY_STATION_DAY_SHIFT';
+WriteMessage(v_app_name,'INFO', '----- Start -----');
+v_proc_start := sysdate;
+
+OPEN c_plant;
+LOOP
+    FETCH c_plant INTO c_plant_line;
+        EXIT WHEN c_plant%NOTFOUND;
+        
+        -- new code to handle extra app_name for evenry plant
+        v_plant_id := c_plant_line.plant_id;
+        
+        get_time_window(v_app_name,v_plant_id,1,p_date_start,p_date_end);
+        IF ((p_date_start IS NOT NULL) AND (p_date_end IS NOT NULL)) THEN
+            ---------------------------------------------------------
+            WriteMessage(v_app_name,'INFO', 'Starting bulk fetch and insert for plant_id: '||v_plant_id);
+            v_fetch_start := sysdate;
+            
+            OPEN c_data(v_plant_id,p_date_start,p_date_end);
+            LOOP 
+            
+                FETCH c_data BULK COLLECT INTO many_rows_cur LIMIT 1000;       
+                EXIT WHEN many_rows_cur.COUNT = 0;
+
+                FORALL i IN 1 .. many_rows_cur.count SAVE EXCEPTIONS
+                    INSERT INTO UX_WIP_FPY_STATION_DAY_SHIFT VALUES many_rows_cur(i);
+                
+            END LOOP;
+            
+            WriteMessage(v_app_name,'INFO', 'Plant: '||v_plant_id||' | Total rows inserted: '|| c_data%rowcount ||' | Time: '|| round((sysdate - v_fetch_start) * 24 * 60,1)||' min' );
+            
+            CLOSE c_data;
+            COMMIT;
+            get_time_window(v_app_name,v_plant_id,0,p_date_start, p_date_end);
+            
+        END IF;
+END LOOP;
+CLOSE c_plant;
+
+COMMIT;
+WriteMessage(v_app_name,'INFO', '----- End ----- | Time: '|| ROUND((sysdate - v_proc_start) * 24 * 60,1)||' min');
+
+
+EXCEPTION
+WHEN ex_dml_errors THEN
+      l_error_count := SQL%BULK_EXCEPTIONS.COUNT;
+      WriteMessage(v_app_name, 'ERROR' ,'Number of failures: ' || l_error_count);
+      FOR i IN 1 .. l_error_count LOOP
+        WriteMessage(v_app_name, 'ERROR' ,'Error: ' || i || 
+          ' Array Index: ' || SQL%BULK_EXCEPTIONS(i).error_index ||
+          ' Message: ' || SQLERRM(-SQL%BULK_EXCEPTIONS(i).ERROR_CODE));
+      END LOOP;
+     ROLLBACK;
+    get_time_window(v_app_name,v_plant_id,2,p_date_start, p_date_end);
+WHEN OTHERS THEN
+    sql_error_message := 'An error was encountered - '||SQLCODE||' -ERROR- '||SQLERRM;
+    WriteMessage(v_app_name, 'ERROR' , sql_error_message);
+    ROLLBACK;
+    get_time_window(v_app_name,v_plant_id,2,p_date_start, p_date_end);
+END;
+
+
+
+--UX_WIP_FPY_STATION_DAY_SHIFT_TOTAL
+create or replace PROCEDURE STORE_UX_WIP_FPY_STATION_DAY_SHIFT_TOTAL AS 
+
+CURSOR c_plant IS 
+SELECT * 
+FROM GEN_T_UX_PLANTS;
+
+CURSOR c_data (c_plant_id VARCHAR2, c_date_start DATE, c_date_end DATE) IS
+SELECT plant_id,
+       shift_date,
+       station,
+       SUM(count_in) AS count_in,   -- celkovy pocet kusu vstupujicich do stanice
+       SUM(count_out) AS count_out, -- celkovy pocet kusu vystupujicich ze stanice
+       SUM(count_out)/SUM(count_out/NULLIF(fpy,0)) AS fpy   -- vazeny prumer FPY, tj. pomer kusu vystupujicich / (vystupujicich / FPY) dle materialu pro danou stanici; NULLIF: v pripade deleni nulou je FPY = null
+FROM UX_WIP_FPY_STATION_DAY_SHIFT
+WHERE shift_date >= c_date_start - 1 -- porovnani datumu s datumem v tabulce UX_REP.DATA_TRANSFER (STORE_UX_WIP_FPY_STATION_DAY_SHIFT_TOTAL)
+AND shift_date < c_date_end - 1       -- pomoci neho bereme casove okna, ktere pravidelne spoustime pomoci jobu
+AND plant_id = c_plant_id
+GROUP BY plant_id,
+         shift_date,
+         station
+;
+  
+
+c_plant_line c_plant%ROWTYPE;
+
+p_date_start DATE;
+p_date_end DATE;
+sql_error_message  VARCHAR2(2000);
+v_app_name data_transfer.app_name%TYPE;
+v_plant_id data_transfer.plant%TYPE;
+
+TYPE t_many_rows_cur IS TABLE OF c_data%rowtype;
+
+many_rows_cur t_many_rows_cur;
+
+ex_dml_errors EXCEPTION;
+  PRAGMA EXCEPTION_INIT(ex_dml_errors, -24381);
+  l_error_count  NUMBER;
+  
+  v_fetch_start DATE;
+  v_proc_start DATE;
+
+BEGIN
+
+v_app_name := 'STORE_UX_WIP_FPY_STATION_DAY_SHIFT_TOTAL';
+WriteMessage(v_app_name,'INFO', '----- Start -----');
+v_proc_start := sysdate;
+
+OPEN c_plant;
+LOOP
+    FETCH c_plant INTO c_plant_line;
+        EXIT WHEN c_plant%NOTFOUND;
+        
+        -- new code to handle extra app_name for evenry plant
+        v_plant_id := c_plant_line.plant_id;
+        
+        get_time_window(v_app_name,v_plant_id,1,p_date_start,p_date_end);
+        IF ((p_date_start IS NOT NULL) AND (p_date_end IS NOT NULL)) THEN
+            ---------------------------------------------------------
+            WriteMessage(v_app_name,'INFO', 'Starting bulk fetch and insert for plant_id: '||v_plant_id);
+            v_fetch_start := sysdate;
+            
+            OPEN c_data(v_plant_id,p_date_start,p_date_end);
+            LOOP 
+            
+                FETCH c_data BULK COLLECT INTO many_rows_cur LIMIT 1000;       
+                EXIT WHEN many_rows_cur.COUNT = 0;
+
+                FORALL i IN 1 .. many_rows_cur.count SAVE EXCEPTIONS
+                    INSERT INTO UX_WIP_FPY_STATION_DAY_SHIFT_TOTAL VALUES many_rows_cur(i);
+                
+            END LOOP;
+            
+            WriteMessage(v_app_name,'INFO', 'Plant: '||v_plant_id||' | Total rows inserted: '|| c_data%rowcount ||' | Time: '|| round((sysdate - v_fetch_start) * 24 * 60,1)||' min' );
+            
+            CLOSE c_data;
+            COMMIT;
+            get_time_window(v_app_name,v_plant_id,0,p_date_start, p_date_end);
+            
+        END IF;
+END LOOP;
+CLOSE c_plant;
+
+COMMIT;
+WriteMessage(v_app_name,'INFO', '----- End ----- | Time: '|| ROUND((sysdate - v_proc_start) * 24 * 60,1)||' min');
+
+
+EXCEPTION
+WHEN ex_dml_errors THEN
+      l_error_count := SQL%BULK_EXCEPTIONS.COUNT;
+      WriteMessage(v_app_name, 'ERROR' ,'Number of failures: ' || l_error_count);
+      FOR i IN 1 .. l_error_count LOOP
+        WriteMessage(v_app_name, 'ERROR' ,'Error: ' || i || 
+          ' Array Index: ' || SQL%BULK_EXCEPTIONS(i).error_index ||
+          ' Message: ' || SQLERRM(-SQL%BULK_EXCEPTIONS(i).ERROR_CODE));
+      END LOOP;
+     ROLLBACK;
+    get_time_window(v_app_name,v_plant_id,2,p_date_start, p_date_end);
+WHEN OTHERS THEN
+    sql_error_message := 'An error was encountered - '||SQLCODE||' -ERROR- '||SQLERRM;
+    WriteMessage(v_app_name, 'ERROR' , sql_error_message);
+    ROLLBACK;
+    get_time_window(v_app_name,v_plant_id,2,p_date_start, p_date_end);
+END;
+
+
+--UX_WIP_FPY_STATION_GROUP_DAY_SHIFT
+create or replace PROCEDURE STORE_UX_WIP_FPY_STATION_GROUP_DAY_SHIFT AS 
+
+CURSOR c_plant IS 
+SELECT * 
+FROM GEN_T_UX_PLANTS;
+
+CURSOR c_data (c_plant_id VARCHAR2, c_date_start DATE, c_date_end DATE) IS
+SELECT plant_id,
+       shift_date,
+       process_step, 
+       station_group, 
+       process_group, 
+       line,
+       material,
+       SUM(count_in) AS count_in,   -- celkovy pocet kusu vstupujicich do stanice (lepe receno skupiny stanic)
+       SUM(count_out) AS count_out, -- celkovy pocet kusu vystupujicich ze stanice (lepe receno skupiny stanic)
+       SUM(count_out)/SUM(count_out/NULLIF(fpy,0)) AS fpy   -- vazeny prumer FPY, tj. pomer kusu vystupujicich / (vystupujicich / FPY) dle stanic patrici pod danou skupinu; NULLIF: v pripade deleni nulou je FPY = null
+FROM UX_WIP_FPY_STATION_DAY_SHIFT
+WHERE shift_date >= c_date_start - 1 -- porovnani datumu zaznamu s datumem v tabulce DATA_TRANSFER (STORE_UX_WIP_FPY_STATION_GROUP_DAY_SHIFT)
+AND shift_date < c_date_end - 1      -- pomoci neho bereme casove okna, ktere pravidelne spoustime pomoci jobu
+AND plant_id = c_plant_id
+GROUP BY plant_id,
+       shift_date,
+       process_step, 
+       station_group, 
+       process_group, 
+       line,
+       material
+;
+  
+--c_data_line   c_data%ROWTYPE;
+c_plant_line c_plant%ROWTYPE;
+
+--inserted_lines NUMBER;
+p_date_start DATE;
+p_date_end DATE;
+sql_error_message  VARCHAR2(2000);
+v_app_name data_transfer.app_name%TYPE;
+v_plant_id data_transfer.plant%TYPE;
+
+TYPE t_many_rows_cur IS TABLE OF c_data%rowtype;
+
+many_rows_cur t_many_rows_cur;
+
+ex_dml_errors EXCEPTION;
+  PRAGMA EXCEPTION_INIT(ex_dml_errors, -24381);
+  l_error_count  NUMBER;
+  
+  v_fetch_start DATE;
+  v_proc_start DATE;
+
+BEGIN
+
+v_app_name := 'STORE_UX_WIP_FPY_STATION_GROUP_DAY_SHIFT';
+WriteMessage(v_app_name,'INFO', '----- Start -----');
+v_proc_start := sysdate;
+
+OPEN c_plant;
+LOOP
+    FETCH c_plant INTO c_plant_line;
+        EXIT WHEN c_plant%NOTFOUND;
+        
+        -- new code to handle extra app_name for evenry plant
+        v_plant_id := c_plant_line.plant_id;
+        
+        get_time_window(v_app_name,v_plant_id,1,p_date_start,p_date_end);
+        IF ((p_date_start IS NOT NULL) AND (p_date_end IS NOT NULL)) THEN
+            ---------------------------------------------------------
+            WriteMessage(v_app_name,'INFO', 'Starting bulk fetch and insert for plant_id: '||v_plant_id);
+            v_fetch_start := sysdate;
+            
+            OPEN c_data(v_plant_id,p_date_start,p_date_end);
+            LOOP 
+            
+                FETCH c_data BULK COLLECT INTO many_rows_cur limit 1000;       
+                EXIT WHEN many_rows_cur.COUNT = 0;
+
+                FORALL i IN 1 .. many_rows_cur.count SAVE EXCEPTIONS
+                    INSERT INTO UX_WIP_FPY_STATION_GROUP_DAY_SHIFT VALUES many_rows_cur(i);
+                
+            END LOOP;
+            
+            WriteMessage(v_app_name,'INFO', 'Plant: '||v_plant_id||' | Total rows inserted: '|| c_data%rowcount ||' | Time: '|| round((sysdate - v_fetch_start) * 24 * 60,1)||' min' );
+            
+            CLOSE c_data;
+            COMMIT;
+            get_time_window(v_app_name,v_plant_id,0,p_date_start, p_date_end);
+            
+        END IF;
+END LOOP;
+CLOSE c_plant;
+
+COMMIT;
+WriteMessage(v_app_name,'INFO', '----- End ----- | Time: '|| ROUND((sysdate - v_proc_start) * 24 * 60,1)||' min');
+
+
+EXCEPTION
+WHEN ex_dml_errors THEN
+      l_error_count := SQL%BULK_EXCEPTIONS.COUNT;
+      WriteMessage(v_app_name, 'ERROR' ,'Number of failures: ' || l_error_count);
+      FOR i IN 1 .. l_error_count LOOP
+        WriteMessage(v_app_name, 'ERROR' ,'Error: ' || i || 
+          ' Array Index: ' || SQL%BULK_EXCEPTIONS(i).error_index ||
+          ' Message: ' || SQLERRM(-SQL%BULK_EXCEPTIONS(i).ERROR_CODE));
+      END LOOP;
+     ROLLBACK;
+    get_time_window(v_app_name,v_plant_id,2,p_date_start, p_date_end);
+WHEN OTHERS THEN
+    sql_error_message := 'An error was encountered - '||SQLCODE||' -ERROR- '||SQLERRM;
+    WriteMessage(v_app_name, 'ERROR' , sql_error_message);
+    ROLLBACK;
+    get_time_window(v_app_name,v_plant_id,2,p_date_start, p_date_end);
+END;
+
+
+-- UX_WIP_FPY_STATION_GROUP_DAY_SHIFT_TOTAL
+create or replace PROCEDURE STORE_UX_WIP_FPY_STATION_GROUP_DAY_SHIFT_TOTAL AS 
+
+CURSOR c_plant IS 
+SELECT * 
+FROM GEN_T_UX_PLANTS;
+
+CURSOR c_data (c_plant_id VARCHAR2, c_date_start DATE, c_date_end DATE) IS
+SELECT plant_id,
+       shift_date, 
+       station_group,
+       SUM(count_in) AS count_in,   -- celkovy pocet kusu vstupujicich do stanice (lepe receno skupiny stanic)
+       SUM(count_out) AS count_out, -- celkovy pocet kusu vystupujicich ze stanice (lepe receno skupiny stanic)
+       SUM(count_out)/SUM(count_out/NULLIF(fpy,0)) AS fpy   -- vazeny prumer FPY, tj. pomer kusu vystupujicich / (vystupujicich / FPY) dle materialu pro danou skupinu stanic; NULLIF: v pripade deleni nulou je FPY = null
+FROM UX_WIP_FPY_STATION_GROUP_DAY_SHIFT
+WHERE shift_date >= c_date_start - 1 -- porovnani datumu zaznamu s datumem v tabulce DATA_TRANSFER (STORE_UX_WIP_FPY_STATION_GROUP_DAY_SHIFT_TOTAL)
+AND shift_date < c_date_end - 1       -- pomoci neho bereme casove okna, ktere pravidelne spoustime pomoci jobu
+AND plant_id = c_plant_id
+GROUP BY plant_id,
+         shift_date, 
+         station_group
+;
+  
+c_plant_line c_plant%ROWTYPE;
+
+
+p_date_start DATE;
+p_date_end DATE;
+sql_error_message  VARCHAR2(2000);
+v_app_name data_transfer.app_name%TYPE;
+v_plant_id data_transfer.plant%TYPE;
+
+TYPE t_many_rows_cur IS TABLE OF c_data%rowtype;
+
+many_rows_cur t_many_rows_cur;
+
+ex_dml_errors EXCEPTION;
+  PRAGMA EXCEPTION_INIT(ex_dml_errors, -24381);
+  l_error_count  NUMBER;
+  
+  v_fetch_start DATE;
+  v_proc_start DATE;
+
+BEGIN
+
+v_app_name := 'STORE_UX_WIP_FPY_STATION_GROUP_DAY_SHIFT_TOTAL';
+WriteMessage(v_app_name,'INFO', '----- Start -----');
+v_proc_start := sysdate;
+
+OPEN c_plant;
+LOOP
+    FETCH c_plant INTO c_plant_line;
+        EXIT WHEN c_plant%NOTFOUND;
+        
+        -- new code to handle extra app_name for evenry plant
+        v_plant_id := c_plant_line.plant_id;
+        
+        get_time_window(v_app_name,v_plant_id,1,p_date_start,p_date_end);
+        IF ((p_date_start IS NOT NULL) AND (p_date_end IS NOT NULL)) THEN
+            ---------------------------------------------------------
+            WriteMessage(v_app_name,'INFO', 'Starting bulk fetch and insert for plant_id: '||v_plant_id);
+            v_fetch_start := sysdate;
+            
+            OPEN c_data(v_plant_id,p_date_start,p_date_end);
+            LOOP 
+            
+                FETCH c_data BULK COLLECT INTO many_rows_cur LIMIT 1000;       
+                EXIT WHEN many_rows_cur.COUNT = 0;
+
+                FORALL i IN 1 .. many_rows_cur.count SAVE EXCEPTIONS
+                    INSERT INTO UX_WIP_FPY_STATION_GROUP_DAY_SHIFT_TOTAL VALUES many_rows_cur(i);
+                
+            END LOOP;
+            
+            WriteMessage(v_app_name,'INFO', 'Plant: '||v_plant_id||' | Total rows inserted: '|| c_data%rowcount ||' | Time: '|| round((sysdate - v_fetch_start) * 24 * 60,1)||' min' );
+            
+            CLOSE c_data;
+            COMMIT;
+            get_time_window(v_app_name,v_plant_id,0,p_date_start, p_date_end);
+            
+        END IF;
+END LOOP;
+CLOSE c_plant;
+
+COMMIT;
+WriteMessage(v_app_name,'INFO', '----- End ----- | Time: '|| ROUND((sysdate - v_proc_start) * 24 * 60,1)||' min');
+
+
+EXCEPTION
+WHEN ex_dml_errors THEN
+      l_error_count := SQL%BULK_EXCEPTIONS.COUNT;
+      WriteMessage(v_app_name, 'ERROR' ,'Number of failures: ' || l_error_count);
+      FOR i IN 1 .. l_error_count LOOP
+        WriteMessage(v_app_name, 'ERROR' ,'Error: ' || i || 
+          ' Array Index: ' || SQL%BULK_EXCEPTIONS(i).error_index ||
+          ' Message: ' || SQLERRM(-SQL%BULK_EXCEPTIONS(i).ERROR_CODE));
+      END LOOP;
+     ROLLBACK;
+    get_time_window(v_app_name,v_plant_id,2,p_date_start, p_date_end);
+WHEN OTHERS THEN
+    sql_error_message := 'An error was encountered - '||SQLCODE||' -ERROR- '||SQLERRM;
+    WriteMessage(v_app_name, 'ERROR' , sql_error_message);
+    ROLLBACK;
+    get_time_window(v_app_name,v_plant_id,2,p_date_start, p_date_end);
+END;
+
+
+-- UX_WIP_FPY_LINE_DAY_SHIFT
+create or replace PROCEDURE STORE_UX_WIP_FPY_LINE_DAY_SHIFT AS 
+
+CURSOR c_plant IS 
+SELECT * 
+FROM GEN_T_UX_PLANTS;
+
+CURSOR c_data (c_plant_id VARCHAR2, c_date_start DATE, c_date_end DATE) IS
+WITH TMP_GROUP AS(  -- docasna tabulka, ktera vybere PLANT_ID, LINE, PROCESS_STEP; kazda stanice ma urcitou hodnotu procesniho kroku, v zavislosti na poradi, napr. prvni je 110, posledni 9999
+    SELECT DISTINCT plant_id,                    
+                    line,
+                    process_step
+    FROM UX_WIP_FPY_STATION_GROUP_DAY_SHIFT
+),
+TMP_VALID AS(   -- docasna tabulka, ktera spocte sumu procesnich kroku pro danou linku; duvod: kazdy material (A2C/A3C) musi projit kazdou stanici dane linky, aby se mohl zapocist do FPY linky
+    SELECT plant_id,
+           line,
+           SUM(process_step) AS valid
+    FROM TMP_GROUP 
+    GROUP BY plant_id, 
+             line
+),
+TMP_OUT AS( -- docasna tabulka, vybere celkovy pocet kusu vystupujicich z linky, ktery je urcen posledni stanici (nebo skupinou stanic)
+    SELECT *
+    FROM (SELECT plant_id,
+                 shift_date,
+                 line, 
+                 material,           
+                 count_out,
+                 RANK() OVER (PARTITION BY plant_id,
+                                           shift_date,
+                                           line,
+                                           material                                                                                       
+                              ORDER BY process_step DESC) AS r
+          FROM UX_WIP_FPY_STATION_GROUP_DAY_SHIFT)
+    WHERE r = 1
+),
+TMP_IN AS(  -- docasna tabulka, vybere celkovy pocet kusu vstupujicich do linky, ktery je urcen prvni stanici (nebo skupinou stanic)
+    SELECT *
+    FROM (SELECT plant_id,
+                 shift_date,
+                 line,
+                 material,
+                 count_in,
+                 RANK() OVER (PARTITION BY plant_id,
+                                           shift_date,
+                                           line,
+                                           material
+                              ORDER BY process_step ASC) AS r
+           FROM UX_WIP_FPY_STATION_GROUP_DAY_SHIFT)
+    WHERE r = 1
+),
+TMP_MAIN AS(    -- docasna tabulka, ktera krome zakladnich dat prida informaci o pocte kusu na vstupu a vystupu z linky (TPM_IN, TPM_OUT) a spocte FPY linky nasobenim stanic (nebo skupiny stanic)
+    SELECT f.plant_id,
+           f.shift_date,
+           f.line,
+           f.material,
+           i.count_in, 
+           o.count_out,
+           ROUND(EXP(SUM(LN(CASE 
+                                WHEN f.fpy > 0 
+                                THEN f.fpy
+                                ELSE 0.000000000000000000001 
+                            END))),4) AS fpy,   -- ROUND: zaokrouhleni, kdyz je FPY rovno nebo mensi 0, tak = "temer" 0, co je po zaoukrouhleni na 4 desetinna mista rovno 0; EXP(SUM(LN)): vyraz pro nasobeni  
+           SUM(f.process_step) AS valid         -- soucet procesnich kroku pro dany material na lince, v dalsim SELCT-u se bude porovnavat vysledna hodnota s hodnotou z tabulky TMP_VALID 
+    FROM UX_WIP_FPY_STATION_GROUP_DAY_SHIFT f
+    LEFT JOIN TMP_OUT o
+        ON (f.plant_id = o.plant_id
+        AND f.shift_date = o.shift_date
+        AND f.line = o.line
+        AND NVL(f.material, 'N/A') = NVL(o.material, 'N/A'))    -- kdyz je material NULL, tak null = null je vzdy null, tj. nedojde k propojeni, reseni je NLV(atribut, 'hodnota v pripade null')
+    LEFT JOIN TMP_IN i
+        ON (f.plant_id = i.plant_id
+        AND f.shift_date = i.shift_date
+        AND f.line = i.line
+        AND NVL(f.material, 'N/A') = NVL(i.material, 'N/A'))    -- kdyz je material NULL, tak null = null je vzdy null, tj. nedojde k propojeni, reseni je NLV(atribut, 'hodnota v pripade null')
+    WHERE f.shift_date >= c_date_start - 1   -- porovnani datumu zaznamu s datumem v tabulce DATA_TRANSFER (STORE_UX_WIP_FPY_LINE_DAY_SHIFT)
+    AND f.shift_date < c_date_end - 1        -- pomoci neho bereme casove okna, ktere pravidelne spoustime pomoci jobu  
+    AND f.plant_id = c_plant_id
+    GROUP BY f.plant_id,
+             f.shift_date,
+             f.line,
+             f.material,                                       
+             i.count_in, 
+             o.count_out
+)
+SELECT m.plant_id,
+       m.shift_date,
+       m.line, 
+       m.material, 
+       m.count_in, 
+       m.count_out, 
+       m.fpy
+FROM TMP_MAIN m
+INNER JOIN TMP_VALID v  
+    ON (m.plant_id = v.plant_id
+    AND m.line = v.line
+    AND m.valid = CASE                                  -- porovnani jestli sedi hodnota procesnich kroku pro dany material (A2C/A3C) se vsemi dostupnymi stanicemi, ktere na lince existuji, kdyz se hodnoty rovnaji, pocitam je do FPY linky
+                    WHEN m.line NOT LIKE '%BMW AZV%'    -- z podminky je vyhozena linka BMW AZV v TM na zaklade pozadavku od Mihaie
+                    THEN v.valid
+                    ELSE m.valid
+                  END) 
+;
+
+  
+c_plant_line c_plant%ROWTYPE;
+
+
+p_date_start DATE;
+p_date_end DATE;
+sql_error_message  VARCHAR2(2000);
+v_app_name data_transfer.app_name%TYPE;
+v_plant_id data_transfer.plant%TYPE;
+
+TYPE t_many_rows_cur IS TABLE OF c_data%rowtype;
+
+many_rows_cur t_many_rows_cur;
+
+ex_dml_errors EXCEPTION;
+  PRAGMA EXCEPTION_INIT(ex_dml_errors, -24381);
+  l_error_count  NUMBER;
+  
+  v_fetch_start DATE;
+  v_proc_start DATE;
+
+BEGIN
+
+v_app_name := 'STORE_UX_WIP_FPY_LINE_DAY_SHIFT';
+WriteMessage(v_app_name,'INFO', '----- Start -----');
+v_proc_start := sysdate;
+
+OPEN c_plant;
+LOOP
+    FETCH c_plant INTO c_plant_line;
+        EXIT WHEN c_plant%NOTFOUND;
+        
+        -- new code to handle extra app_name for evenry plant
+        v_plant_id := c_plant_line.plant_id;
+        
+        get_time_window(v_app_name,v_plant_id,1,p_date_start,p_date_end);
+        IF ((p_date_start IS NOT NULL) AND (p_date_end IS NOT NULL)) THEN
+            ---------------------------------------------------------
+            WriteMessage(v_app_name,'INFO', 'Starting bulk fetch and insert for plant_id: '||v_plant_id);
+            v_fetch_start := sysdate;
+            
+            OPEN c_data(v_plant_id,p_date_start,p_date_end);
+            LOOP 
+            
+                FETCH c_data BULK COLLECT INTO many_rows_cur LIMIT 1000;       
+                EXIT WHEN many_rows_cur.COUNT = 0;
+
+                FORALL i IN 1 .. many_rows_cur.count SAVE EXCEPTIONS
+                    INSERT INTO UX_WIP_FPY_LINE_DAY_SHIFT VALUES many_rows_cur(i);
+                
+            END LOOP;
+            
+            WriteMessage(v_app_name,'INFO', 'Plant: '||v_plant_id||' | Total rows inserted: '|| c_data%rowcount ||' | Time: '|| round((sysdate - v_fetch_start) * 24 * 60,1)||' min' );
+            
+            CLOSE c_data;
+            COMMIT;
+            get_time_window(v_app_name,v_plant_id,0,p_date_start, p_date_end);
+            
+        END IF;
+END LOOP;
+CLOSE c_plant;
+
+COMMIT;
+WriteMessage(v_app_name,'INFO', '----- End ----- | Time: '|| ROUND((sysdate - v_proc_start) * 24 * 60,1)||' min');
+
+
+EXCEPTION
+WHEN ex_dml_errors THEN
+      l_error_count := SQL%BULK_EXCEPTIONS.COUNT;
+      WriteMessage(v_app_name, 'ERROR' ,'Number of failures: ' || l_error_count);
+      FOR i IN 1 .. l_error_count LOOP
+        WriteMessage(v_app_name, 'ERROR' ,'Error: ' || i || 
+          ' Array Index: ' || SQL%BULK_EXCEPTIONS(i).error_index ||
+          ' Message: ' || SQLERRM(-SQL%BULK_EXCEPTIONS(i).ERROR_CODE));
+      END LOOP;
+     ROLLBACK;
+    get_time_window(v_app_name,v_plant_id,2,p_date_start, p_date_end);
+WHEN OTHERS THEN
+    sql_error_message := 'An error was encountered - '||SQLCODE||' -ERROR- '||SQLERRM;
+    WriteMessage(v_app_name, 'ERROR' , sql_error_message);
+    ROLLBACK;
+    get_time_window(v_app_name,v_plant_id,2,p_date_start, p_date_end);
+END;
+
+
+-- UX_WIP_FPY_LINE_DAY_SHIFT_TOTAL
+create or replace PROCEDURE STORE_UX_WIP_FPY_LINE_DAY_SHIFT_TOTAL AS 
+
+CURSOR c_plant IS 
+SELECT * 
+FROM GEN_T_UX_PLANTS;
+
+CURSOR c_data (c_plant_id VARCHAR2, c_date_start DATE, c_date_end DATE) IS
+SELECT plant_id,
+       shift_date,
+       line, 
+       SUM(count_in) AS count_in,
+       SUM(count_out) AS count_out,
+       SUM(count_out)/SUM(count_out/NULLIF(fpy,0)) AS fpy
+FROM UX_WIP_FPY_LINE_DAY_SHIFT
+WHERE shift_date >= c_date_start - 1   -- porovnani datumu zaznamu s datumem v tabulce DATA_TRANSFER (STORE_UX_WIP_FPY_LINE_DAY_SHIFT_TOTAL)
+AND shift_date < c_date_end - 1        -- pomoci neho bereme casove okna, ktere pravidelne spoustime pomoci jobu
+AND plant_id = c_plant_id
+GROUP BY plant_id,
+         shift_date, 
+         line
+;
+
+  
+c_plant_line c_plant%ROWTYPE;
+
+
+p_date_start DATE;
+p_date_end DATE;
+sql_error_message  VARCHAR2(2000);
+v_app_name data_transfer.app_name%TYPE;
+v_plant_id data_transfer.plant%TYPE;
+
+TYPE t_many_rows_cur IS TABLE OF c_data%rowtype;
+
+many_rows_cur t_many_rows_cur;
+
+ex_dml_errors EXCEPTION;
+  PRAGMA EXCEPTION_INIT(ex_dml_errors, -24381);
+  l_error_count  NUMBER;
+  
+  v_fetch_start DATE;
+  v_proc_start DATE;
+
+BEGIN
+
+v_app_name := 'STORE_UX_WIP_FPY_LINE_DAY_SHIFT_TOTAL';
+WriteMessage(v_app_name,'INFO', '----- Start -----');
+v_proc_start := sysdate;
+
+OPEN c_plant;
+LOOP
+    FETCH c_plant INTO c_plant_line;
+        EXIT WHEN c_plant%NOTFOUND;
+        
+        -- new code to handle extra app_name for evenry plant
+        v_plant_id := c_plant_line.plant_id;
+        
+        get_time_window(v_app_name,v_plant_id,1,p_date_start,p_date_end);
+        IF ((p_date_start IS NOT NULL) AND (p_date_end IS NOT NULL)) THEN
+            ---------------------------------------------------------
+            WriteMessage(v_app_name,'INFO', 'Starting bulk fetch and insert for plant_id: '||v_plant_id);
+            v_fetch_start := sysdate;
+            
+            OPEN c_data(v_plant_id,p_date_start,p_date_end);
+            LOOP 
+            
+                FETCH c_data BULK COLLECT INTO many_rows_cur LIMIT 1000;       
+                EXIT WHEN many_rows_cur.COUNT = 0;
+
+                FORALL i IN 1 .. many_rows_cur.count SAVE EXCEPTIONS
+                    INSERT INTO UX_WIP_FPY_LINE_DAY_SHIFT_TOTAL VALUES many_rows_cur(i);
+                
+            END LOOP;
+            
+            WriteMessage(v_app_name,'INFO', 'Plant: '||v_plant_id||' | Total rows inserted: '|| c_data%rowcount ||' | Time: '|| round((sysdate - v_fetch_start) * 24 * 60,1)||' min' );
+            
+            CLOSE c_data;
+            COMMIT;
+            get_time_window(v_app_name,v_plant_id,0,p_date_start, p_date_end);
+            
+        END IF;
+END LOOP;
+CLOSE c_plant;
+
+COMMIT;
+WriteMessage(v_app_name,'INFO', '----- End ----- | Time: '|| ROUND((sysdate - v_proc_start) * 24 * 60,1)||' min');
+
+
+EXCEPTION
+WHEN ex_dml_errors THEN
+      l_error_count := SQL%BULK_EXCEPTIONS.COUNT;
+      WriteMessage(v_app_name, 'ERROR' ,'Number of failures: ' || l_error_count);
+      FOR i IN 1 .. l_error_count LOOP
+        WriteMessage(v_app_name, 'ERROR' ,'Error: ' || i || 
+          ' Array Index: ' || SQL%BULK_EXCEPTIONS(i).error_index ||
+          ' Message: ' || SQLERRM(-SQL%BULK_EXCEPTIONS(i).ERROR_CODE));
+      END LOOP;
+     ROLLBACK;
+    get_time_window(v_app_name,v_plant_id,2,p_date_start, p_date_end);
+WHEN OTHERS THEN
+    sql_error_message := 'An error was encountered - '||SQLCODE||' -ERROR- '||SQLERRM;
+    WriteMessage(v_app_name, 'ERROR' , sql_error_message);
+    ROLLBACK;
+    get_time_window(v_app_name,v_plant_id,2,p_date_start, p_date_end);
+END;
+
+
+PROCEDÚRA PRE AKTUÁLNE TABUĽKY:
+
+-- FOR ALL ACTUAL TABLES
+create or replace procedure STORE_UX_FPY_ACTUAL_TABLES as
+
+CURSOR c_data  IS
+-- UX_WIP_FPY_STATION_DAY_SHIFT_ACTUAL
+WITH 
+TMP_SHIFT_STATION AS (
+SELECT DISTINCT plant_id,
+                station_name,
+                MIN(start_time) AS shift_day_start,
+                CASE
+                    WHEN MIN(start_time) = '00:00'
+                    THEN 'N'
+                    ELSE 'Y'
+                END AS shift_next_day   -- smena se preklapi do dalsiho dne
+FROM mes_dwh.PLS_TECHNICAL_SHIFT
+WHERE plant_id IN (                     -- jen zavody, ktere nas zajimaj
+      SELECT plant_id 
+      FROM GEN_T_UX_PLANTS)
+GROUP BY plant_id,
+         station_name
+),
+TMP_SHIFT_FIRST AS(
+SELECT DISTINCT plant_id,
+                MIN(start_time) AS shift_day_start,
+                CASE
+                    WHEN MIN(start_time) = '00:00'
+                    THEN 'N'
+                    ELSE 'Y'
+                END AS shift_next_day   -- smena se preklapi do dalsiho dne
+FROM mes_dwh.PLS_TECHNICAL_SHIFT
+WHERE plant_id IN (                     -- jen zavody, ktere nas zajimaj
+      SELECT plant_id 
+      FROM GEN_T_UX_PLANTS)
+GROUP BY plant_id
+)        
+SELECT q.plant_id,
+       CASE
+            -- kdyz shift_day se preleva do dalsiho dne = 'Y' tak pouzi hodnoty z tabulky TMP_SHIFT_STATION, spojeni podle stanice
+            WHEN h.shift_next_day = 'Y'
+            THEN TRUNC(
+                q.affected_datetime - (
+                    ((1 / 24) * TO_NUMBER(SUBSTR(h.shift_day_start, 1, 2)))         -- minus hodina 
+                    + ((1 / 24 / 60) * TO_NUMBER(SUBSTR(h.shift_day_start, 4, 2)))  -- minus minuta
+                )
+            )
+            -- jinak pouzi hodnoty z TMP_SHIFT_FIRST, spojeni podle zavodu
+            ELSE TRUNC(
+                q.affected_datetime - (
+                    ((1 / 24) * TO_NUMBER(SUBSTR(f.shift_day_start, 1, 2)))         -- minus hodina 
+                    + ((1 / 24 / 60) * TO_NUMBER(SUBSTR(f.shift_day_start, 4, 2)))  -- minus minuta
+                )
+            )
+        -- duvod je ten, ze zavod TQ ma stanice, kde zacina smenovy den ve dvou casech
+        -- a zaroven ne vsechny stanice maji definovan smenovy den
+       END AS shift_date,
+       s.station_id AS station,
+       m.process_step,
+       s.station_group,
+       p.process_group,
+       s.line_name AS line,
+       m.material_name AS material,
+       SUM(q.first_pass_qty + q.first_fail_qty) AS count_in,   -- celkovy pocet kusu vstupujicich do stanice, SUM - v pripade, ze se stejny material objevi v jeden den 2x
+       SUM(q.first_pass_qty) AS count_out,                     -- celkovy pocet kusu vystupujicich ze stanice
+       ROUND(SUM(q.first_pass_qty)/NULLIF(SUM(q.first_pass_qty + q.first_fail_qty), 0), 4) AS fpy
+FROM mes_dwh.QKPI_STATION_QUANTITIES q
+LEFT JOIN mes_dwh.QKPI_STATION_ATT_COMB m
+    ON q.plant_id = m.plant_id
+    AND q.day_id = m.day_id
+    AND q.station_att_comb_pk_id = m.station_att_comb_pk_id
+LEFT JOIN mes_dwh.HIERARCHY_LINE_STATION s
+    ON q.plant_id = s.plant_id
+    AND m.line_station_id = s.line_station_id
+LEFT JOIN mes_dwh.QKPI_PROCESS_DESCRIPTION p
+    ON q.plant_id = p.plant_id
+    AND m.process_step = p.process_step
+    AND s.station_group = p.equipment
+LEFT JOIN TMP_SHIFT_STATION h
+    ON q.plant_id = h.plant_id
+    AND s.station_id = h.station_name
+LEFT JOIN TMP_SHIFT_FIRST f
+    ON q.plant_id = f.plant_id
+JOIN GEN_T_UX_PLANTS t          -- staci join, vybere jen vybrany zavody
+    ON q.plant_id = t.plant_id
+WHERE q.granularity = '5M'
+-- jen zavody, ktere nas zajimaj
+AND q.plant_id IN (                     
+      SELECT plant_id 
+      FROM GEN_T_UX_PLANTS)
+-- jen aktualni zaznamy, tj. aktualni FPY pro bezici smenu a smenu den zpatky
+AND TO_CHAR(q.affected_datetime, 'DD.MM.YYYY HH24:MI') >= (
+    -- jsou brany v podtaz casovy pasma (t.timezone_text z tabulky GEN_T_UX_PLANTS)
+    CASE
+        -- podminky pro zaznamy s prirazenou stanici a smenou, tabulka TMP_SHIFT_STATION
+        WHEN h.shift_next_day = 'Y'                                                                             -- jestli se smena preklapi do dalsiho dne a zaroven
+             AND TO_CHAR(CURRENT_TIMESTAMP AT TIME ZONE t.timezone_txt, 'HH24:MI') >= h.shift_day_start         -- je aktualni cas vetsi nez zacatek smeny (napr. v BY zacina smena v 6:00 a aktualne je 7:00)
+        THEN TO_CHAR(FROM_TZ(CAST(SYSTIMESTAMP - 1 AS TIMESTAMP), 'UTC') AT TIME ZONE t.timezone_txt, 'DD.MM.YYYY') || ' ' ||  h.shift_day_start  -- tak vyber jen zaznamy od zacatku smeny v aktualne bezicim dnu a case a smenu den zpatky
+        WHEN h.shift_next_day = 'Y'                                                                             -- jestli se smena preklapi do dalsiho dne a zaroven
+             AND TO_CHAR(CURRENT_TIMESTAMP AT TIME ZONE t.timezone_txt, 'HH24:MI') < h.shift_day_start          -- je aktualni cas mensi nez zacatek smeny (napr. v BY zacina smena v 6:00 a aktualne je druhy den rano 1:00)
+        THEN TO_CHAR(FROM_TZ(CAST(SYSTIMESTAMP - 2 AS TIMESTAMP), 'UTC') AT TIME ZONE t.timezone_txt, 'DD.MM.YYYY') || ' ' ||  h.shift_day_start   -- tak vyber jen zaznamy od zacatku smeny v aktualne bezici smene a smene den zpatky (od hodiny, ktera zacala predevcirem)
+        WHEN h.shift_next_day = 'N'                                                                             -- jestli se smena nepreklapi do dalsiho dne, zacina o 00:00 a zaroven
+        THEN TO_CHAR(FROM_TZ(CAST(SYSTIMESTAMP - 1 AS TIMESTAMP), 'UTC') AT TIME ZONE t.timezone_txt, 'DD.MM.YYYY') || ' ' ||  h.shift_day_start  -- tak vyber jen zaznamy od zacatku smeny v aktualne bezicim dnu a case a smenu den zpatky
+        -- podminky pro zaznamy s neprizarenou stanici a smenou, smena se odviji od tabulky TMP_SHIFT_FIRST - podle zavodu
+        WHEN f.shift_next_day = 'Y'                                                                             -- jestli se smena preklapi do dalsiho dne a zaroven
+             AND TO_CHAR(CURRENT_TIMESTAMP AT TIME ZONE t.timezone_txt, 'HH24:MI') >= f.shift_day_start         -- je aktualni cas vetsi nez zacatek smeny (napr. v BY zacina smena v 6:00 a aktualne je 7:00)
+        THEN TO_CHAR(FROM_TZ(CAST(SYSTIMESTAMP - 1 AS TIMESTAMP), 'UTC') AT TIME ZONE t.timezone_txt, 'DD.MM.YYYY') || ' ' ||  f.shift_day_start  -- tak vyber jen zaznamy od zacatku smeny v aktualne bezicim dnu a case a smenu den zpatky
+        WHEN f.shift_next_day = 'Y'                                                                             -- jestli se smena preklapi do dalsiho dne a zaroven
+             AND TO_CHAR(CURRENT_TIMESTAMP AT TIME ZONE t.timezone_txt, 'HH24:MI') < f.shift_day_start          -- je aktualni cas mensi nez zacatek smeny (napr. v BY zacina smena v 6:00 a aktualne je druhy den rano 1:00)
+        THEN TO_CHAR(FROM_TZ(CAST(SYSTIMESTAMP - 2 AS TIMESTAMP), 'UTC') AT TIME ZONE t.timezone_txt, 'DD.MM.YYYY') || ' ' ||  f.shift_day_start   -- tak vyber jen zaznamy od zacatku smeny v aktualne bezici smene a smene den zpatky (od hodiny, ktera zacala predevcirem)
+        WHEN f.shift_next_day = 'N'                                                                             -- jestli se smena nepreklapi do dalsiho dne, zacina o 00:00 a zaroven
+        THEN TO_CHAR(FROM_TZ(CAST(SYSTIMESTAMP - 1 AS TIMESTAMP), 'UTC') AT TIME ZONE t.timezone_txt, 'DD.MM.YYYY') || ' ' ||  f.shift_day_start  -- tak vyber jen zaznamy od zacatku smeny v aktualne bezicim dnu a case a smenu den zpatky
+    END
+)
+GROUP BY q.plant_id,
+         s.station_id, 
+         m.process_step, 
+         s.station_group,
+         p.process_group,
+         s.line_name,
+         m.material_name, 
+         CASE 
+            WHEN h.shift_next_day = 'Y' 
+            THEN TRUNC(q.affected_datetime - (((1 / 24) * TO_NUMBER(SUBSTR(h.shift_day_start, 1, 2))) + ((1 / 24 / 60) * TO_NUMBER(SUBSTR(h.shift_day_start, 4, 2))))) 
+            ELSE TRUNC(q.affected_datetime - (((1 / 24) * TO_NUMBER(SUBSTR(f.shift_day_start, 1, 2))) + ((1 / 24 / 60) * TO_NUMBER(SUBSTR(f.shift_day_start, 4, 2))))) 
+         END;
+
+CURSOR c_data_2  IS
+-- UX_WIP_FPY_STATION_DAY_SHIFT_TOTAL_ACTUAL
+SELECT plant_id,
+       shift_date,
+       station,
+       SUM(count_in) AS count_in,   -- celkovy pocet kusu vstupujicich do stanice
+       SUM(count_out) AS count_out, -- celkovy pocet kusu vystupujicich ze stanice
+       SUM(count_out)/SUM(count_out/NULLIF(fpy,0)) AS fpy   -- vazeny prumer FPY, tj. pomer kusu vystupujicich / (vystupujicich / FPY) dle materialu pro danou stanici; NULLIF: v pripade deleni nulou je FPY = null
+FROM UX_WIP_FPY_STATION_DAY_SHIFT_ACTUAL
+GROUP BY plant_id,
+         shift_date,
+         station
+;
+
+CURSOR c_data_3  IS
+-- UX_WIP_FPY_STATION_GROUP_DAY_SHIFT_ACTUAL
+SELECT plant_id,
+       shift_date,
+       process_step, 
+       station_group, 
+       process_group, 
+       line,
+       material,
+       SUM(count_in) AS count_in,   -- celkovy pocet kusu vstupujicich do stanice (lepe receno skupiny stanic)
+       SUM(count_out) AS count_out, -- celkovy pocet kusu vystupujicich ze stanice (lepe receno skupiny stanic)
+       SUM(count_out)/SUM(count_out/NULLIF(fpy,0)) AS fpy   -- vazeny prumer FPY, tj. pomer kusu vystupujicich / (vystupujicich / FPY) dle stanic patrici pod danou skupinu; NULLIF: v pripade deleni nulou je FPY = null
+FROM UX_WIP_FPY_STATION_DAY_SHIFT_ACTUAL
+GROUP BY plant_id,
+       shift_date,
+       process_step, 
+       station_group, 
+       process_group, 
+       line,
+       material
+;
+
+
+CURSOR c_data_4  IS
+-- UX_WIP_FPY_STATION_GROUP_DAY_SHIFT_TOTAL_ACTUAL
+SELECT plant_id,
+       shift_date, 
+       station_group,
+       SUM(count_in) AS count_in,   -- celkovy pocet kusu vstupujicich do stanice (lepe receno skupiny stanic)
+       SUM(count_out) AS count_out, -- celkovy pocet kusu vystupujicich ze stanice (lepe receno skupiny stanic)
+       SUM(count_out)/SUM(count_out/NULLIF(fpy,0)) AS fpy   -- vazeny prumer FPY, tj. pomer kusu vystupujicich / (vystupujicich / FPY) dle materialu pro danou skupinu stanic; NULLIF: v pripade deleni nulou je FPY = null
+FROM UX_WIP_FPY_STATION_GROUP_DAY_SHIFT_ACTUAL
+GROUP BY plant_id,
+         shift_date, 
+         station_group
+;
+
+CURSOR c_data_5  IS
+-- UX_WIP_FPY_LINE_DAY_SHIFT_ACTUAL
+WITH TMP_GROUP AS(  -- docasna tabulka, ktera vybere PLANT_ID, LINE, PROCESS_STEP; kazda stanice ma urcitou hodnotu procesniho kroku, v zavislosti na poradi, napr. prvni je 110, posledni 9999
+    SELECT DISTINCT plant_id,                    
+                    line,
+                    process_step
+    FROM UX_WIP_FPY_STATION_GROUP_DAY_SHIFT_ACTUAL
+),
+TMP_VALID AS(   -- docasna tabulka, ktera spocte sumu procesnich kroku pro danou linku; duvod: kazdy material (A2C/A3C) musi projit kazdou stanici dane linky, aby se mohl zapocist do FPY linky
+    SELECT plant_id,
+           line,
+           SUM(process_step) AS valid
+    FROM TMP_GROUP 
+    GROUP BY plant_id, 
+             line
+),
+TMP_OUT AS( -- docasna tabulka, vybere celkovy pocet kusu vystupujicich z linky, ktery je urcen posledni stanici (nebo skupinou stanic)
+    SELECT *
+    FROM (SELECT plant_id,
+                 shift_date,
+                 line, 
+                 material,           
+                 count_out,
+                 RANK() OVER (PARTITION BY plant_id,
+                                           shift_date,
+                                           line,
+                                           material                                                                                       
+                              ORDER BY process_step DESC) AS r
+          FROM UX_WIP_FPY_STATION_GROUP_DAY_SHIFT_ACTUAL)
+    WHERE r = 1
+),
+TMP_IN AS(  -- docasna tabulka, vybere celkovy pocet kusu vstupujicich do linky, ktery je urcen prvni stanici (nebo skupinou stanic)
+    SELECT *
+    FROM (SELECT plant_id,
+                 shift_date,
+                 line,
+                 material,
+                 count_in,
+                 RANK() OVER (PARTITION BY plant_id,
+                                           shift_date,
+                                           line,
+                                           material
+                              ORDER BY process_step ASC) AS r
+           FROM UX_WIP_FPY_STATION_GROUP_DAY_SHIFT_ACTUAL)
+    WHERE r = 1
+),
+TMP_MAIN AS(    -- docasna tabulka, ktera krome zakladnich dat prida informaci o pocte kusu na vstupu a vystupu z linky (TPM_IN, TPM_OUT) a spocte FPY linky nasobenim stanic (nebo skupiny stanic)
+    SELECT f.plant_id,
+           f.shift_date,
+           f.line,
+           f.material,
+           i.count_in, 
+           o.count_out,
+           ROUND(EXP(SUM(LN(CASE 
+                                WHEN f.fpy > 0 
+                                THEN f.fpy
+                                ELSE 0.000000000000000000001 
+                            END))),4) AS fpy,   -- ROUND: zaokrouhleni, kdyz je FPY rovno nebo mensi 0, tak = "temer" 0, co je po zaoukrouhleni na 4 desetinna mista rovno 0; EXP(SUM(LN)): vyraz pro nasobeni  
+           SUM(f.process_step) AS valid         -- soucet procesnich kroku pro dany material na lince, v dalsim SELCT-u se bude porovnavat vysledna hodnota s hodnotou z tabulky TMP_VALID 
+    FROM UX_WIP_FPY_STATION_GROUP_DAY_SHIFT_ACTUAL f
+    LEFT JOIN TMP_OUT o
+        ON (f.plant_id = o.plant_id
+        AND f.shift_date = o.shift_date
+        AND f.line = o.line
+        AND NVL(f.material, 'N/A') = NVL(o.material, 'N/A'))    -- kdyz je material NULL, tak null = null je vzdy null, tj. nedojde k propojeni, reseni je NLV(atribut, 'hodnota v pripade null')
+    LEFT JOIN TMP_IN i
+        ON (f.plant_id = i.plant_id
+        AND f.shift_date = i.shift_date
+        AND f.line = i.line
+        AND NVL(f.material, 'N/A') = NVL(i.material, 'N/A'))    -- kdyz je material NULL, tak null = null je vzdy null, tj. nedojde k propojeni, reseni je NLV(atribut, 'hodnota v pripade null')
+    GROUP BY f.plant_id,
+             f.shift_date,
+             f.line,
+             f.material,                                       
+             i.count_in, 
+             o.count_out
+)
+SELECT m.plant_id,
+       m.shift_date,
+       m.line, 
+       m.material, 
+       m.count_in, 
+       m.count_out, 
+       m.fpy
+FROM TMP_MAIN m
+INNER JOIN TMP_VALID v  
+    ON (m.plant_id = v.plant_id
+    AND m.line = v.line
+    AND m.valid = CASE                                  -- porovnani jestli sedi hodnota procesnich kroku pro dany material (A2C/A3C) se vsemi dostupnymi stanicemi, ktere na lince existuji, kdyz se hodnoty rovnaji, pocitam je do FPY linky
+                    WHEN m.line NOT LIKE '%BMW AZV%'    -- z podminky je vyhozena linka BMW AZV v TM na zaklade pozadavku od Mihaie
+                    THEN v.valid
+                    ELSE m.valid
+                  END) 
+;
+
+    
+CURSOR c_data_6 IS
+-- UX_WIP_FPY_LINE_DAY_SHIFT_TOTAL_ACTUAL
+SELECT plant_id,
+       shift_date,
+       line, 
+       SUM(count_in) AS count_in,
+       SUM(count_out) AS count_out,
+       SUM(count_out)/SUM(count_out/NULLIF(fpy,0)) AS fpy
+FROM UX_WIP_FPY_LINE_DAY_SHIFT_ACTUAL
+GROUP BY plant_id,
+         shift_date, 
+         line
+;
+
+
+
+TYPE t_many_rows_cur IS TABLE OF c_data%rowtype;
+many_rows_cur t_many_rows_cur;
+
+TYPE t_many_rows_cur_2 IS TABLE OF c_data_2%rowtype;
+many_rows_cur_2 t_many_rows_cur_2;
+
+TYPE t_many_rows_cur_3 IS TABLE OF c_data_3%rowtype;
+many_rows_cur_3 t_many_rows_cur_3;
+
+TYPE t_many_rows_cur_4 IS TABLE OF c_data_4%rowtype;
+many_rows_cur_4 t_many_rows_cur_4;
+
+TYPE t_many_rows_cur_5 IS TABLE OF c_data_5%rowtype;
+many_rows_cur_5 t_many_rows_cur_5;
+
+TYPE t_many_rows_cur_6 IS TABLE OF c_data_6%rowtype;
+many_rows_cur_6 t_many_rows_cur_6;
+
+
+
+p_date_start DATE;
+p_date_end DATE;
+sql_error_message  VARCHAR2(2000);
+v_app_name data_transfer.app_name%TYPE;
+v_plant_id data_transfer.plant%TYPE;
+
+
+
+ex_dml_errors EXCEPTION;
+  PRAGMA EXCEPTION_INIT(ex_dml_errors, -24381);
+  l_error_count  NUMBER;
+  
+  v_fetch_start DATE;
+  v_proc_start DATE;
+
+BEGIN
+
+v_app_name := 'STORE_UX_FPY_ACTUAL_TABLES';
+WriteMessage(v_app_name,'INFO', '----- Start -----');
+v_proc_start := sysdate;
+
+
+        
+        -- new code to handle extra app_name for evenry plant
+        v_plant_id := 'ALL';
+        
+       
+            --------------------------------------------------------------------
+            WriteMessage(v_app_name,'INFO', 'Starting bulk fetch and insert for plant_id: '||v_plant_id);
+            v_fetch_start := sysdate;
+            --------------------------------------------------------------------
+           
+            EXECUTE IMMEDIATE 'TRUNCATE TABLE UX_WIP_FPY_STATION_DAY_SHIFT_ACTUAL';
+
+            OPEN c_data;
+            LOOP 
+            
+                FETCH c_data BULK COLLECT INTO many_rows_cur LIMIT 1000;       
+                EXIT WHEN many_rows_cur.COUNT = 0;
+
+                FORALL i IN 1 .. many_rows_cur.COUNT SAVE EXCEPTIONS
+                    INSERT INTO UX_WIP_FPY_STATION_DAY_SHIFT_ACTUAL VALUES many_rows_cur(i);
+                
+            END LOOP;
+            
+            WriteMessage(v_app_name,'INFO', 'Plant: '||v_plant_id||' | Total rows inserted to UX_WIP_FPY_STATION_DAY_SHIFT_ACTUAL: '|| c_data%rowcount ||' | Time: '|| ROUND((sysdate - v_fetch_start) * 24 * 60,1)||' min' );
+            
+            CLOSE c_data;
+            COMMIT;
+            ---------------------------------------------------------------------
+            
+            EXECUTE IMMEDIATE 'TRUNCATE TABLE UX_WIP_FPY_STATION_DAY_SHIFT_TOTAL_ACTUAL';
+            
+            v_fetch_start := sysdate;
+            OPEN c_data_2;
+            LOOP 
+            
+                FETCH c_data_2 BULK COLLECT INTO many_rows_cur_2 LIMIT 1000;       
+                EXIT WHEN many_rows_cur_2.COUNT = 0;
+
+                FORALL i IN 1 .. many_rows_cur_2.COUNT SAVE EXCEPTIONS
+                    INSERT INTO UX_WIP_FPY_STATION_DAY_SHIFT_TOTAL_ACTUAL VALUES many_rows_cur_2(i);
+                
+            END LOOP;
+            
+            WriteMessage(v_app_name,'INFO', 'Plant: '||v_plant_id||' | Total rows inserted to UX_WIP_FPY_STATION_DAY_SHIFT_TOTAL_ACTUAL: '|| c_data_2%rowcount ||' | Time: '|| ROUND((sysdate - v_fetch_start) * 24 * 60,1)||' min' );
+            
+            CLOSE c_data_2;
+            COMMIT;
+            --------------------------------------------------------------------
+            
+            EXECUTE IMMEDIATE 'TRUNCATE TABLE UX_WIP_FPY_STATION_GROUP_DAY_SHIFT_ACTUAL';
+                       
+            v_fetch_start := sysdate;
+            OPEN c_data_3;
+            LOOP 
+            
+                FETCH c_data_3 BULK COLLECT INTO many_rows_cur_3 LIMIT 1000;       
+                EXIT WHEN many_rows_cur_3.COUNT = 0;
+
+                FORALL i IN 1 .. many_rows_cur_3.COUNT SAVE EXCEPTIONS
+                    INSERT INTO UX_WIP_FPY_STATION_GROUP_DAY_SHIFT_ACTUAL VALUES many_rows_cur_3(i);
+                
+            END LOOP;
+            
+            WriteMessage(v_app_name,'INFO', 'Plant: '||v_plant_id||' | Total rows inserted to UX_WIP_FPY_STATION_GROUP_DAY_SHIFT_ACTUAL: '|| c_data_3%rowcount ||' | Time: '|| ROUND((sysdate - v_fetch_start) * 24 * 60,1)||' min' );
+            
+            CLOSE c_data_3;
+            COMMIT;
+            --------------------------------------------------------------------
+            
+            EXECUTE IMMEDIATE 'TRUNCATE TABLE UX_WIP_FPY_STATION_GROUP_DAY_SHIFT_TOTAL_ACTUAL';
+            
+            v_fetch_start := sysdate;
+            OPEN c_data_4;
+            LOOP 
+            
+                FETCH c_data_4 BULK COLLECT INTO many_rows_cur_4 LIMIT 1000;       
+                EXIT WHEN many_rows_cur_4.COUNT = 0;
+
+                FORALL i IN 1 .. many_rows_cur_4.COUNT SAVE EXCEPTIONS
+                    INSERT INTO UX_WIP_FPY_STATION_GROUP_DAY_SHIFT_TOTAL_ACTUAL VALUES many_rows_cur_4(i);
+                
+            END LOOP;
+            
+            WriteMessage(v_app_name,'INFO', 'Plant: '||v_plant_id||' | Total rows inserted to UX_WIP_FPY_STATION_GROUP_DAY_SHIFT_TOTAL_ACTUAL: '|| c_data_4%rowcount ||' | Time: '|| ROUND((sysdate - v_fetch_start) * 24 * 60,1)||' min' );
+            
+            CLOSE c_data_4;
+            COMMIT;
+            --------------------------------------------------------------------
+             
+            EXECUTE IMMEDIATE 'TRUNCATE TABLE UX_WIP_FPY_LINE_DAY_SHIFT_ACTUAL';
+            
+            v_fetch_start := sysdate;
+            OPEN c_data_5;
+            LOOP 
+            
+                FETCH c_data_5 BULK COLLECT INTO many_rows_cur_5 LIMIT 1000;       
+                EXIT WHEN many_rows_cur_5.COUNT = 0;
+
+                FORALL i IN 1 .. many_rows_cur_5.COUNT SAVE EXCEPTIONS
+                    INSERT INTO UX_WIP_FPY_LINE_DAY_SHIFT_ACTUAL VALUES many_rows_cur_5(i);
+                
+            END LOOP;
+            
+            WriteMessage(v_app_name,'INFO', 'Plant: '||v_plant_id||' | Total rows inserted to UX_WIP_FPY_LINE_DAY_SHIFT_ACTUAL: '|| c_data_5%rowcount ||' | Time: '|| ROUND((sysdate - v_fetch_start) * 24 * 60,1)||' min' );
+            
+            CLOSE c_data_5;
+            COMMIT;
+            
+            --------------------------------------------------------------------
+            
+            EXECUTE IMMEDIATE 'TRUNCATE TABLE UX_WIP_FPY_LINE_DAY_SHIFT_TOTAL_ACTUAL';
+
+            
+            v_fetch_start := sysdate;
+            OPEN c_data_6;
+            LOOP 
+            
+                FETCH c_data_6 BULK COLLECT INTO many_rows_cur_6 LIMIT 1000;       
+                EXIT WHEN many_rows_cur_6.COUNT = 0;
+
+                FORALL i IN 1 .. many_rows_cur_6.COUNT SAVE EXCEPTIONS
+                    INSERT INTO UX_WIP_FPY_LINE_DAY_SHIFT_TOTAL_ACTUAL VALUES many_rows_cur_6(i);
+                
+            END LOOP;
+            
+            WriteMessage(v_app_name,'INFO', 'Plant: '||v_plant_id||' | Total rows inserted to UX_WIP_FPY_LINE_DAY_SHIFT_TOTAL_ACTUAL: '|| c_data_6%rowcount ||' | Time: '|| ROUND((sysdate - v_fetch_start) * 24 * 60,1)||' min' );
+            
+            CLOSE c_data_6;
+            COMMIT;
+            
+
+
+WriteMessage(v_app_name,'INFO', '----- End ----- | Time: '|| ROUND((sysdate - v_proc_start) * 24 * 60,1)||' min');
+
+EXCEPTION
+WHEN ex_dml_errors THEN
+      l_error_count := SQL%BULK_EXCEPTIONS.COUNT;
+      WriteMessage(v_app_name, 'ERROR' ,'Number of failures: ' || l_error_count);
+      FOR i IN 1 .. l_error_count LOOP
+        WriteMessage(v_app_name, 'ERROR' ,'Error: ' || i || 
+          ' Array Index: ' || SQL%BULK_EXCEPTIONS(i).error_index ||
+          ' Message: ' || SQLERRM(-SQL%BULK_EXCEPTIONS(i).ERROR_CODE));
+      END LOOP;
+     ROLLBACK;
+    get_time_window(v_app_name,v_plant_id,2,p_date_start, p_date_end);
+WHEN OTHERS THEN
+    sql_error_message := 'An error was encountered - '||SQLCODE||' -ERROR- '||SQLERRM;
+    WriteMessage(v_app_name, 'ERROR' , sql_error_message);
+    ROLLBACK;
+    get_time_window(v_app_name,v_plant_id,2,p_date_start, p_date_end);
+END;
+
+
+PROCEDÚRA PRE CHYBOVÉ HLÁŠKY:
+
+-- UX_EVA_SOURCE_FAIL
+create or replace PROCEDURE STORE_UX_EVA_SOURCE_FAIL AS 
+
+CURSOR c_plant IS 
+SELECT * 
+FROM GEN_T_UX_PLANTS;
+
+CURSOR c_data (c_plant_id VARCHAR2, c_date_start DATE, c_date_end DATE) IS
+WITH 
+TMP_SHIFT_STATION AS (
+SELECT DISTINCT plant_id,
+                station_name,
+                MIN(start_time) AS shift_day_start,
+                CASE
+                    WHEN MIN(start_time) = '00:00'
+                    THEN 'N'
+                    ELSE 'Y'
+                END AS shift_next_day   -- smena se preklapi do dalsiho dne
+FROM mes_dwh.PLS_TECHNICAL_SHIFT
+WHERE plant_id IN (                     -- jen zavody, ktere nas zajimaj
+      SELECT plant_id 
+      FROM GEN_T_UX_PLANTS)
+GROUP BY plant_id,
+         station_name
+),
+TMP_SHIFT_FIRST AS(
+SELECT DISTINCT plant_id,
+                MIN(start_time) AS shift_day_start,
+                CASE
+                    WHEN MIN(start_time) = '00:00'
+                    THEN 'N'
+                    ELSE 'Y'
+                END AS shift_next_day   -- smena se preklapi do dalsiho dne
+FROM mes_dwh.PLS_TECHNICAL_SHIFT
+WHERE plant_id IN (                     -- jen zavody, ktere nas zajimaj
+      SELECT plant_id 
+      FROM GEN_T_UX_PLANTS)
+GROUP BY plant_id
+)
+SELECT r.plant_id,
+       TO_NUMBER(TO_CHAR(t.testrun_date_start, 'YYYYMMDDHH24MISS') || TO_CHAR(ROWNUM)) AS pk_id,
+       t.testrun_unit_id AS serial_id,
+       t.testrun_unit_id_type AS type,
+       t.testrun_date_start AS event_date,
+       CASE
+            -- kdyz shift_day se preleva do dalsiho dne = 'Y' tak pouzi hodnoty z tabulky TMP_SHIFT_STATION, spojeni podle stanice
+            WHEN s.shift_next_day = 'Y'
+            THEN TRUNC(
+                t.testrun_date_start - (
+                    ((1 / 24) * TO_NUMBER(SUBSTR(s.shift_day_start, 1, 2)))         -- minus hodina 
+                    + ((1 / 24 / 60) * TO_NUMBER(SUBSTR(s.shift_day_start, 4, 2)))  -- minus minuta
+                )
+            )
+            -- jinak pouzi hodnoty z TMP_SHIFT_FIRST, spojeni podle zavodu
+            ELSE TRUNC(
+                t.testrun_date_start - (
+                    ((1 / 24) * TO_NUMBER(SUBSTR(f.shift_day_start, 1, 2)))         -- minus hodina 
+                    + ((1 / 24 / 60) * TO_NUMBER(SUBSTR(f.shift_day_start, 4, 2)))  -- minus minuta
+                )
+            )
+        -- duvod je ten, ze zavod TQ ma stanice, kde zacina smenovy den ve dvou casech
+        -- a zaroven ne vsechny stanice maji definovan smenovy den
+       END AS shift_date,
+       r.testplan_name,
+       r.station_name AS station,
+       r.product_name AS material_num,
+       tp.teststep_num_long AS test_id,
+       tp.teststep_name AS description,
+       SUBSTR(TRIM(TO_CHAR(m.test_value_num)), 1, 10) AS value, -- data flow Power BI nedokaze pracovat s dlouhym retezcem
+       TO_CHAR(tp.teststep_lsl) AS lower_limit,                 -- proto take TO_CHAR tady
+       TO_CHAR(tp.teststep_usl) AS upper_limit,                 -- a tady   
+       m.test_value_txt AS info,
+       i.testrun_txt_info AS text_info,
+       r.testrun_day_id AS day_id,
+       c.attribute_entry_comment AS characteristics
+FROM mes_dwh.EVA_1_RUNS_ATT_COMB r
+LEFT JOIN mes_dwh.EVA_2_TESTRUNS t
+    ON r.plant_id = t.plant_id
+    AND r.testrun_day_id = t.testrun_day_id
+    AND r.att_comb_pk_id = t.att_comb_pk_id
+LEFT JOIN mes_dwh.EVA_4_MEASUREMENTS m
+    ON r.plant_id = m.plant_id
+    AND r.testrun_day_id = m.testrun_day_id
+    AND t.testrun_pk_id = m.testrun_pk_id
+LEFT JOIN mes_dwh.EVA_LU_TESTPLAN_TESTSTEP tp
+    ON r.plant_id = tp.plant_id
+    AND r.testplan_pk_id = tp.testplan_pk_id
+    --AND r.testplan_name = tp.testplan_name
+    --AND r.testplan_group = tp.testplan_group
+    AND m.teststep_pk_id = tp.teststep_pk_id
+LEFT JOIN mes_dwh.EVA_3_RUNS_TXT_INFO i
+    ON r.plant_id = i.plant_id
+    AND r.testrun_day_id = i.testrun_day_id
+    AND t.testrun_pk_id = i.testrun_pk_id
+LEFT JOIN mes_dwh.EVA_LU_FAIL_CATALOG c
+    ON r.plant_id = c.plant_id
+    AND r.testplan_pk_id = c.testplan_pk_id
+    AND tp.attribute_list_pk_id = c.attribute_list_pk_id
+    AND m.test_value_num = c.attribute_entry_num
+LEFT JOIN TMP_SHIFT_STATION s
+    ON r.plant_id = s.plant_id
+    AND r.station_name = s.station_name
+LEFT JOIN TMP_SHIFT_FIRST f
+    ON r.plant_id = f.plant_id
+WHERE r.testrun_result = 'F'    -- jen FAIL
+AND m.test_result = 'F'         -- jen FAIL
+AND (r.plant_id = c_plant_id
+AND r.testrun_day_id >= TO_NUMBER(TO_CHAR(c_date_start,'YYYYMMDD'))
+AND r.testrun_day_id < TO_NUMBER(TO_CHAR(c_date_end,'YYYYMMDD')));
+
+
+c_data_line   c_data%ROWTYPE;
+c_plant_line c_plant%ROWTYPE;
+
+inserted_lines NUMBER;
+p_date_start DATE;
+p_date_end DATE;
+sql_error_message  VARCHAR2(2000);
+v_app_name data_transfer.app_name%TYPE;
+v_plant_id data_transfer.plant%TYPE;
+
+TYPE t_many_rows_cur IS TABLE OF c_data%rowtype;
+
+many_rows_cur t_many_rows_cur;
+
+ex_dml_errors EXCEPTION;
+  PRAGMA EXCEPTION_INIT(ex_dml_errors, -24381);
+  l_error_count  NUMBER;
+
+  v_fetch_start DATE;
+  v_proc_start DATE;
+
+BEGIN
+
+v_app_name := 'STORE_UX_EVA_SOURCE_FAIL';
+WriteMessage(v_app_name,'INFO', '----- Start -----');
+v_proc_start := sysdate;
+
+OPEN c_plant;
+LOOP
+    FETCH c_plant INTO c_plant_line;
+        EXIT WHEN c_plant%NOTFOUND;
+
+        -- new code to handle extra app_name for evenry plant
+        v_plant_id := c_plant_line.plant_id;
+
+        get_time_window(v_app_name,v_plant_id,1,p_date_start,p_date_end);
+        IF ((p_date_start IS NOT NULL) AND (p_date_end IS NOT NULL)) THEN
+            ---------------------------------------------------------
+            WriteMessage(v_app_name,'INFO', 'Starting bulk fetch and insert for plant_id: '||v_plant_id);
+            v_fetch_start := sysdate;
+
+
+-- PLANT_ID, PK_ID, SERIAL_ID, TYPE, EVENT_DATE, SHIFT_DATE, TESTPLAN_NAME, STATION, MATERIAL_NUM, TEST_ID, DESCRIPTION, VALUE, LOWER_LIMIT, UPPTER_LIMIT, INFO, TEXT_INFO, DAY_ID
+
+
+            OPEN c_data(v_plant_id,p_date_start,p_date_end);
+            LOOP 
+
+                FETCH c_data bulk collect into many_rows_cur limit 1000;       
+                EXIT WHEN many_rows_cur.COUNT = 0;
+
+              --  FORALL i IN 1 .. many_rows_cur.count SAVE EXCEPTIONS
+              --      INSERT INTO UX_EVA_SOURCE_FAIL VALUES many_rows_cur(i);
+
+-- PLANT_ID, PK_ID, SERIAL_ID, TYPE, EVENT_DATE, SHIFT_DATE, TESTPLAN_NAME, STATION, MATERIAL_NUM, TEST_ID, DESCRIPTION, VALUE, LOWER_LIMIT, UPPTER_LIMIT, INFO, TEXT_INFO, DAY_ID
+
+
+
+                forall i in many_rows_cur.first .. many_rows_cur.last
+                merge into UX_EVA_SOURCE_FAIL
+                using (select many_rows_cur(i).PLANT_ID as PLANT_ID,
+                     many_rows_cur(i).PK_ID as PK_ID,
+                     many_rows_cur(i).SERIAL_ID as SERIAL_ID,
+                     many_rows_cur(i).TYPE as TYPE,
+                     many_rows_cur(i).event_date as event_date,
+                     many_rows_cur(i).SHIFT_DATE as SHIFT_DATE,
+                     many_rows_cur(i).TESTPLAN_NAME as TESTPLAN_NAME,
+                     many_rows_cur(i).station as station,
+                     many_rows_cur(i).MATERIAL_NUM as MATERIAL_NUM,
+                     many_rows_cur(i).TEST_ID as TEST_ID,
+                     many_rows_cur(i).DESCRIPTION as DESCRIPTION,
+                     many_rows_cur(i).VALUE as VALUE,
+                     many_rows_cur(i).LOWER_LIMIT as LOWER_LIMIT,
+                     many_rows_cur(i).UPPER_LIMIT as UPPER_LIMIT,
+                     many_rows_cur(i).INFO as INFO,
+                     many_rows_cur(i).TEXT_INFO as TEXT_INFO,
+                     many_rows_cur(i).day_id as day_id,
+                     many_rows_cur(i).characteristics as characteristics
+                from dual) mrg
+                on (UX_EVA_SOURCE_FAIL.pk_id = mrg.pk_id)
+                when not matched then insert  values  many_rows_cur(i);
+                --dbms_output.put_line(sql%rowcount || ' rows merged');
+                inserted_lines := inserted_lines + sql%rowcount;
+
+            END LOOP;
+
+            WriteMessage(v_app_name,'INFO', 'Plant: '||v_plant_id||' | Total rows merged: '|| c_data%rowcount ||' | Time: '|| ROUND((sysdate - v_fetch_start) * 24 * 60,1)||' min' );
+
+            CLOSE c_data;
+            COMMIT;
+            get_time_window(v_app_name,v_plant_id,0,p_date_start, p_date_end);
+
+        END IF;
+END LOOP;
+CLOSE c_plant;
+
+COMMIT;
+WriteMessage(v_app_name,'INFO', '----- End ----- | Time: '|| ROUND((sysdate - v_proc_start) * 24 * 60,1)||' min');
+
+EXCEPTION
+WHEN ex_dml_errors THEN
+      l_error_count := SQL%BULK_EXCEPTIONS.COUNT;
+      WriteMessage(v_app_name, 'ERROR' ,'Number of failures: ' || l_error_count);
+      FOR i IN 1 .. l_error_count LOOP
+        WriteMessage(v_app_name, 'ERROR' ,'Error: ' || i || 
+          ' Array Index: ' || SQL%BULK_EXCEPTIONS(i).error_index ||
+          ' Message: ' || SQLERRM(-SQL%BULK_EXCEPTIONS(i).ERROR_CODE));
+      END LOOP;
+     ROLLBACK;
+    get_time_window(v_app_name,v_plant_id,2,p_date_start, p_date_end);
+WHEN OTHERS THEN
+    sql_error_message := 'An error was encountered - '||SQLCODE||' -ERROR- '||SQLERRM;
+    WriteMessage(v_app_name, 'ERROR' , sql_error_message);
+    ROLLBACK;
+    get_time_window(v_app_name,v_plant_id,2,p_date_start, p_date_end);
+END;
